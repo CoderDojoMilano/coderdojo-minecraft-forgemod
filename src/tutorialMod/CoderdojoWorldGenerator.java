@@ -31,7 +31,7 @@ public class CoderdojoWorldGenerator implements IWorldGenerator {
 		if (world.doesBlockHaveSolidTopSurface(x, y, z))
 		{
 			FMLLog.info("posiziono blocco : chunkX %d, chunkZ %d, Biome %s -> %d, %d, %d", chunkX, chunkZ, b.biomeName, x, y, z);
-			world.setBlock(x, y, z, CoderdojomiMod.coderdojomiBlock.blockID);
+			world.setBlock(x, y, z, CoderdojomiMod.FIRST_BLOCK);
 		} else {
 			FMLLog.info("blocco NON posizionato : chunkX %d, chunkZ %d, Biome %s", chunkX, chunkZ, b.biomeName);
 		}

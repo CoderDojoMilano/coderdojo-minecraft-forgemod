@@ -22,34 +22,34 @@ public class CoderdojomiBlock extends Block {
 	protected Icon block4;
 	@SideOnly(Side.CLIENT)
 	protected Icon block5;
+	private String[] iconNames;
 	
-	public CoderdojomiBlock(int id, Material material) {
+	public CoderdojomiBlock(int id, Material material, String[] iconNames) {
 		super(id, material);
-		
-		setHardness(2.0F);
-		setResistance(10.0F);
-		setStepSound(soundStoneFootstep);
-		setCreativeTab(CreativeTabs.tabBlock);
+		this.iconNames = iconNames;
 	}
 	
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister) {
-		this.block0 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + "green");
-	    this.block1 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + "violet");
-	    this.block2 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + "red");
-	    this.block3 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + "orange");
-	    this.block4 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + "zero-one");
-	    this.block5 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + "blue");
+		if (iconNames.length > 0) {
+			this.blockIcon = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[0]);
+			this.block0 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[0]);
+		}
+		if (iconNames.length > 1) this.block1 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[1]);
+		if (iconNames.length > 2) this.block2 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[2]);
+		if (iconNames.length > 3) this.block3 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[3]);
+		if (iconNames.length > 4) this.block4 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[4]);
+		if (iconNames.length > 5) this.block5 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[5]);
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int side, int meta){
-		if (side == 0) return block0;
-		if (side == 1) return block1;
-		if (side == 2) return block2;
-		if (side == 3) return block3;
-		if (side == 4) return block4;
-		if (side == 5) return block5;
+		if (side == 0 && block0 != null) return block0;
+		if (side == 1 && block1 != null) return block1;
+		if (side == 2 && block2 != null) return block2;
+		if (side == 3 && block3 != null) return block3;
+		if (side == 4 && block4 != null) return block4;
+		if (side == 5 && block5 != null) return block5;
 			
 		//caso base
 		return this.blockIcon;
