@@ -28,9 +28,9 @@ public class CoderdojomiMod {
     	
     	GameRegistry.registerBlock(coderdojomiBlock, modid + coderdojomiBlock.blockID);
         
-     	LanguageRegistry.addName(coderdojomiBlock, CoderDojoLabels.MAIN_LABEL);
+     	LanguageRegistry.addName(coderdojomiBlock, CoderdojoLabels.MAIN_LABEL);
      	
-     	GameRegistry.registerWorldGenerator(new CoderDojoWorldGenerator());
+     	GameRegistry.registerWorldGenerator(new CoderdojoWorldGenerator());
 
      	CoderdojomiCrafting.addRecipes();
     }  
