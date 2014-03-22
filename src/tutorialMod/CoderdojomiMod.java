@@ -3,6 +3,7 @@ package tutorialMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -25,17 +26,22 @@ public class CoderdojomiMod {
     public void load(FMLInitializationEvent event)
     {
     	//blocchi
-    	
     	//hai id 500, assomiglia all terra, ha le facce con texture custom
     	Block coderdojomiBlock = new CoderdojomiBlock(FIRST_BLOCK, Material.ground, new String[]{"blue", "green", null, "orange", "red", "violet"}) 
     										.setHardness(1.0F)
     										.setResistance(10.0F)
     										.setStepSound(Block.soundStoneFootstep)
     										.setCreativeTab(CreativeTabs.tabBlock);
-    	
     	GameRegistry.registerBlock(coderdojomiBlock, modid + coderdojomiBlock.blockID);
-     	LanguageRegistry.addName(coderdojomiBlock, "CoderDojo");
+     	LanguageRegistry.addName(coderdojomiBlock, "CD-MultiTexture");
      	
+     	//items
+     	Item genericIngot = new CoderdojomiItem(5001)
+     							.setMaxStackSize(16)
+     							.setCreativeTab(CreativeTabs.tabMisc)
+     							.setTextureName(CoderdojomiMod.modid + ":" + "zero");
+     	GameRegistry.registerItem(genericIngot, modid + genericIngot.itemID);
+     	LanguageRegistry.addName(genericIngot, "CD-Zero");
      	//generazione mondo
      	GameRegistry.registerWorldGenerator(new CoderdojoWorldGenerator());
 

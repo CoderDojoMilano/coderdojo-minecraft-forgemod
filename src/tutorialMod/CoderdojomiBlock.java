@@ -31,15 +31,15 @@ public class CoderdojomiBlock extends Block {
 	
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister) {
-		if (iconNames.length > 0) {
+		if (iconNames.length > 0 && iconNames[0] != null) {
 			this.blockIcon = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[0]);
 			this.block0 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[0]);
 		}
-		if (iconNames.length > 1) this.block1 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[1]);
-		if (iconNames.length > 2) this.block2 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[2]);
-		if (iconNames.length > 3) this.block3 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[3]);
-		if (iconNames.length > 4) this.block4 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[4]);
-		if (iconNames.length > 5) this.block5 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[5]);
+		if (iconNames.length > 1 && iconNames[1] != null) this.block1 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[1]);
+		if (iconNames.length > 2 && iconNames[2] != null) this.block2 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[2]);
+		if (iconNames.length > 3 && iconNames[3] != null) this.block3 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[3]);
+		if (iconNames.length > 4 && iconNames[4] != null) this.block4 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[4]);
+		if (iconNames.length > 5 && iconNames[5] != null) this.block5 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[5]);
 	}
 	
 	@SideOnly(Side.CLIENT)
