@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.util.Icon;
+import net.minecraft.util.MathHelper;
 
 public class CoderdojomiBlock extends Block {
 
@@ -27,10 +28,12 @@ public class CoderdojomiBlock extends Block {
 	protected Icon block5;
 	private String[] iconNames;
 	private int dropId = -1;
+	private int maxDropped = -1;
 	
 	public CoderdojomiBlock(int id, Material material, String[] iconNames) {
 		super(id, material);
 		this.iconNames = iconNames;
+		setUnlocalizedName("coderDojomiBlock-" + id);  //serve altrimenti MC non riesce a gestire correttamente i nomi
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -59,8 +62,14 @@ public class CoderdojomiBlock extends Block {
 		return this.blockIcon;
 	}
 
-	public void setItemDropped(Item item) {
+	public CoderdojomiBlock setItemDropped(Item item) {
 		this.dropId  = item.itemID;
+		return this;
+	}
+	
+	public CoderdojomiBlock setMaxDropped(int maxDropped) {
+		this.maxDropped = maxDropped;
+		return this;
 	}
 	
 	@Override
@@ -70,5 +79,10 @@ public class CoderdojomiBlock extends Block {
 		} else {
 			return super.idDropped(par1, par2Random, par3);
 		}
+	}
+	
+	@Override
+	public int quantityDropped(Random random) {
+		return MathHelper.getRandomIntegerInRange(random, 1, maxDropped );
 	}
 }
