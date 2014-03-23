@@ -15,8 +15,8 @@ public class CoderdojoWorldGenerator implements IWorldGenerator {
 	public void generate(Random random, int chunkX, int chunkZ, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		
-		int x = chunkX*16 + random.nextInt(16);
-		int z = chunkZ*16 + random.nextInt(16);
+		int x = chunkX * 16; 
+		int z = chunkZ * 16;
 		int y = 256;
 		
 		// La superficie solida solo al di sopra del livello del mare
@@ -30,12 +30,31 @@ public class CoderdojoWorldGenerator implements IWorldGenerator {
 		//trovata coordinata y corretta ?
 		if (world.doesBlockHaveSolidTopSurface(x, y, z))
 		{
-			FMLLog.info("posiziono blocco : chunkX %d, chunkZ %d, Biome %s -> %d, %d, %d", chunkX, chunkZ, b.biomeName, x, y, z);
-			world.setBlock(x, y, z, CoderdojomiMod.FIRST_BLOCK);
-		} else {
-			FMLLog.info("blocco NON posizionato : chunkX %d, chunkZ %d, Biome %s", chunkX, chunkZ, b.biomeName);
+			world.setBlock(x, y, z, CoderdojomiMod.BLOCK_ID_CONTAINER); //punta
+			world.setBlock(x, y - 4, z, CoderdojomiMod.BLOCK_ID_ZERO_UNO_ROCK); //roccia CoderDojo
+			layer3x3(world, x, y - 3, z);
+			layer3x3NoCenter(world, x, y - 4, z);
+			layer3x3(world, x, y - 5, z);
 		}
 
 	}
-	
+
+	private void layer3x3(World world, int x, int y, int z) {
+		layer3x3NoCenter(world, x, y, z);
+		world.setBlock(x, y, z, CoderdojomiMod.BLOCK_ID_CONTAINER);
+	}
+
+	private void layer3x3NoCenter(World world, int x, int y, int z) {
+		lineX(world,x, y, z - 1);
+		lineX(world,x, y, z + 1);
+		world.setBlock(x - 1, y, z, CoderdojomiMod.BLOCK_ID_CONTAINER); 
+		world.setBlock(x + 1, y, z, CoderdojomiMod.BLOCK_ID_CONTAINER); 
+	}
+
+	private void lineX(World world, int x, int y, int z) {
+		world.setBlock(x -1, y , z, CoderdojomiMod.BLOCK_ID_CONTAINER); 
+		world.setBlock(x, y , z, CoderdojomiMod.BLOCK_ID_CONTAINER); 
+		world.setBlock(x + 1, y , z, CoderdojomiMod.BLOCK_ID_CONTAINER);
+	}
+
 }

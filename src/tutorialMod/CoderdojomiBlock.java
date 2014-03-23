@@ -1,11 +1,14 @@
 package tutorialMod;
 
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.util.Icon;
 
 public class CoderdojomiBlock extends Block {
@@ -23,6 +26,7 @@ public class CoderdojomiBlock extends Block {
 	@SideOnly(Side.CLIENT)
 	protected Icon block5;
 	private String[] iconNames;
+	private int dropId = -1;
 	
 	public CoderdojomiBlock(int id, Material material, String[] iconNames) {
 		super(id, material);
@@ -55,4 +59,16 @@ public class CoderdojomiBlock extends Block {
 		return this.blockIcon;
 	}
 
+	public void setItemDropped(Item item) {
+		this.dropId  = item.itemID;
+	}
+	
+	@Override
+	public int idDropped(int par1, Random par2Random, int par3) {
+		if (dropId != -1) {
+			return dropId;
+		} else {
+			return super.idDropped(par1, par2Random, par3);
+		}
+	}
 }

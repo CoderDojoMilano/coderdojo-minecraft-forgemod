@@ -20,32 +20,79 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class CoderdojomiMod {
 	public static final String modid = "Coderdojomi_Mod";
-	public static final int FIRST_BLOCK = 500;
+	public static final int BLOCK_ID_CONTAINER = 500;
+	public static final int BLOCK_ID_ZERO_UNO_ROCK = 501;
+	public static final int BLOCK_ID_LETTER_T = 502;
+	public static final int BLOCK_ID_LETTER_O = 503;
+	public static final int ITEM_ID_ZERO = 5001;
+	public static Item ITEM_ZERO;
 	
     @EventHandler
     public void load(FMLInitializationEvent event)
     {
-    	//blocchi
-    	//hai id 500, assomiglia all terra, ha le facce con texture custom
-    	Block coderdojomiBlock = new CoderdojomiBlock(FIRST_BLOCK, Material.ground, new String[]{"blue", "green", null, "orange", "red", "violet"}) 
-    										.setHardness(1.0F)
-    										.setResistance(10.0F)
-    										.setStepSound(Block.soundStoneFootstep)
-    										.setCreativeTab(CreativeTabs.tabBlock);
-    	GameRegistry.registerBlock(coderdojomiBlock, modid + coderdojomiBlock.blockID);
-     	LanguageRegistry.addName(coderdojomiBlock, "CD-MultiTexture");
+    	ITEM_ZERO = addZeroOneItem();
      	
-     	//items
-     	Item genericIngot = new CoderdojomiItem(5001)
-     							.setMaxStackSize(16)
-     							.setCreativeTab(CreativeTabs.tabMisc)
-     							.setTextureName(CoderdojomiMod.modid + ":" + "zero");
-     	GameRegistry.registerItem(genericIngot, modid + genericIngot.itemID);
-     	LanguageRegistry.addName(genericIngot, "CD-Zero");
+    	addBlockContainer();
+    	Block blockT = addBlockLetter(BLOCK_ID_LETTER_T,"letter-t");
+    	Block blockO = addBlockLetter(BLOCK_ID_LETTER_O,"letter-o");
+    	addBlockZeroOne();
+     	
      	//generazione mondo
      	GameRegistry.registerWorldGenerator(new CoderdojoWorldGenerator());
 
      	//crafting
-     	CoderdojomiCrafting.addFirstRecipes(coderdojomiBlock);
-    }  
+     	CoderdojomiCrafting.addLetterTRecipe(blockT);
+     	CoderdojomiCrafting.addLetterORecipe(blockO);
+    }
+
+	private Block addBlockLetter(int id, String texture) {
+		Block blockContainer = new CoderdojomiBlock(id, Material.rock, new String[]{"white", "white", "white", texture, "white", "white"})
+								.setBlockUnbreakable()
+								.setCreativeTab(CreativeTabs.tabBlock)
+								.setUnlocalizedName("cdBlockLetter" + id);
+		GameRegistry.registerBlock(blockContainer, modid + blockContainer.blockID);
+		LanguageRegistry.addName(blockContainer, "CD-" + texture);
+		return blockContainer;
+	}
+
+	private void addBlockZeroOne() {
+		//ha id 501, assomiglia all terra, ha le facce con texture custom
+     	CoderdojomiBlock block = new CoderdojomiBlock(BLOCK_ID_ZERO_UNO_ROCK, Material.rock, new String[]{"zero-one"});
+     	block.setItemDropped(ITEM_ZERO);
+		Block blockZeroOne = 				block 
+									     	.setHardness(2.0F)
+									     	.setResistance(15.0F)
+									     	.setStepSound(Block.soundStoneFootstep)
+									     	.setCreativeTab(CreativeTabs.tabBlock)
+									     	.setUnlocalizedName("cdBlockZeroOne");
+     	
+     	GameRegistry.registerBlock(blockZeroOne, modid + blockZeroOne.blockID);
+     	LanguageRegistry.addName(blockZeroOne, "CD-ZeroUno");
+	}
+
+	private Block addBlockContainer() {
+		//blocchi
+    	//ha id 500, assomiglia all terra, ha le facce con texture custom
+    	Block blockContainer = new CoderdojomiBlock(BLOCK_ID_CONTAINER, Material.ground, new String[]{"blue", "green", null, "orange", "red", "violet"}) 
+    										.setHardness(1.0F)
+    										.setResistance(10.0F)
+    										.setStepSound(Block.soundMetalFootstep)
+    										.setCreativeTab(CreativeTabs.tabBlock)
+    										.setUnlocalizedName("cdBlockContainer");
+    	GameRegistry.registerBlock(blockContainer, modid + blockContainer.blockID);
+     	LanguageRegistry.addName(blockContainer, "CD-Arcobaleno");
+		return blockContainer;
+	}
+
+	private Item addZeroOneItem() {
+		//items
+     	Item itemZeroOne = new CoderdojomiItem(ITEM_ID_ZERO)
+     							.setMaxStackSize(16)
+     							.setCreativeTab(CreativeTabs.tabMisc)
+     							.setTextureName(CoderdojomiMod.modid + ":" + "zero")
+     							.setUnlocalizedName("cdItemZeroOne");
+     	GameRegistry.registerItem(itemZeroOne, modid + itemZeroOne.itemID);
+     	LanguageRegistry.addName(itemZeroOne, "CD-Zero");
+		return itemZeroOne;
+	}  
 }
