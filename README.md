@@ -1,7 +1,7 @@
 coder-dojo-mod 
 ==============
 
-ver. 0.4
+ver. 0.5
 
 Milan Coder Dojo MineCraft Mod
 
