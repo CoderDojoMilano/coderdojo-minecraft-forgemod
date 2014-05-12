@@ -10,57 +10,51 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.util.Icon;
+import net.minecraft.util.MathHelper;
 
 public class CoderdojomiBlock extends Block {
 
-	@SideOnly(Side.CLIENT)
-    protected Icon block0;
-	@SideOnly(Side.CLIENT)
-	protected Icon block1;
-	@SideOnly(Side.CLIENT)
-	protected Icon block2;
-	@SideOnly(Side.CLIENT)
-	protected Icon block3;
-	@SideOnly(Side.CLIENT)
-	protected Icon block4;
-	@SideOnly(Side.CLIENT)
-	protected Icon block5;
 	private String[] iconNames;
+	private Icon[] icons ;
 	private int dropId = -1;
+	private int maxDropped = -1;
 	
 	public CoderdojomiBlock(int id, Material material, String[] iconNames) {
 		super(id, material);
 		this.iconNames = iconNames;
+		icons = new Icon[6];
+		setUnlocalizedName("coderDojomiBlock-" + id);  //serve altrimenti MC non riesce a gestire correttamente i nomi
 	}
 	
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister) {
-		if (iconNames.length > 0 && iconNames[0] != null) {
-			this.blockIcon = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[0]);
-			this.block0 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[0]);
+		for (int i = 0; i < iconNames.length; i++) {
+			String name = iconNames[i];
+			if (name != null) {
+				if (i == 0) {
+					this.blockIcon = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + name);
+				}
+				icons[i] = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + name);
+			}
 		}
-		if (iconNames.length > 1 && iconNames[1] != null) this.block1 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[1]);
-		if (iconNames.length > 2 && iconNames[2] != null) this.block2 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[2]);
-		if (iconNames.length > 3 && iconNames[3] != null) this.block3 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[3]);
-		if (iconNames.length > 4 && iconNames[4] != null) this.block4 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[4]);
-		if (iconNames.length > 5 && iconNames[5] != null) this.block5 = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + iconNames[5]);
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int side, int meta){
-		if (side == 0 && block0 != null) return block0;
-		if (side == 1 && block1 != null) return block1;
-		if (side == 2 && block2 != null) return block2;
-		if (side == 3 && block3 != null) return block3;
-		if (side == 4 && block4 != null) return block4;
-		if (side == 5 && block5 != null) return block5;
-			
-		//caso base
+		if (icons[side] != null) {
+			return icons[side];
+		}
 		return this.blockIcon;
 	}
 
-	public void setItemDropped(Item item) {
+	public CoderdojomiBlock setItemDropped(Item item) {
 		this.dropId  = item.itemID;
+		return this;
+	}
+	
+	public CoderdojomiBlock setMaxDropped(int maxDropped) {
+		this.maxDropped = maxDropped;
+		return this;
 	}
 	
 	@Override
@@ -70,5 +64,10 @@ public class CoderdojomiBlock extends Block {
 		} else {
 			return super.idDropped(par1, par2Random, par3);
 		}
+	}
+	
+	@Override
+	public int quantityDropped(Random random) {
+		return MathHelper.getRandomIntegerInRange(random, 1, maxDropped );
 	}
 }

@@ -13,7 +13,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
  //ID della mod - nome della mod - versione della mod
-@Mod(modid = CoderdojomiMod.modid, name = "Coderdojomi Mod", version = "1.0")
+@Mod(modid = CoderdojomiMod.modid, name = "Coderdojomi Mod", version = "0.5")
 
 // solo il client deve aver installato la mod, sul server no
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
@@ -48,23 +48,20 @@ public class CoderdojomiMod {
 	private Block addBlockLetter(int id, String texture) {
 		Block blockContainer = new CoderdojomiBlock(id, Material.rock, new String[]{"white", "white", "white", texture, "white", "white"})
 								.setBlockUnbreakable()
-								.setCreativeTab(CreativeTabs.tabBlock)
-								.setUnlocalizedName("cdBlockLetter" + id);
+								.setCreativeTab(CreativeTabs.tabBlock);
 		GameRegistry.registerBlock(blockContainer, modid + blockContainer.blockID);
 		LanguageRegistry.addName(blockContainer, "CD-" + texture);
 		return blockContainer;
 	}
 
 	private void addBlockZeroOne() {
-		//ha id 501, assomiglia all terra, ha le facce con texture custom
-     	CoderdojomiBlock block = new CoderdojomiBlock(BLOCK_ID_ZERO_UNO_ROCK, Material.rock, new String[]{"zero-one"});
-     	block.setItemDropped(ITEM_ZERO);
-		Block blockZeroOne = 				block 
-									     	.setHardness(2.0F)
-									     	.setResistance(15.0F)
-									     	.setStepSound(Block.soundStoneFootstep)
-									     	.setCreativeTab(CreativeTabs.tabBlock)
-									     	.setUnlocalizedName("cdBlockZeroOne");
+		Block blockZeroOne = new CoderdojomiBlock(BLOCK_ID_ZERO_UNO_ROCK, Material.rock, new String[]{"zero-one"}) 
+								.setItemDropped(ITEM_ZERO)
+								.setMaxDropped(5)
+						     	.setHardness(2.0F)
+						     	.setResistance(15.0F)
+						     	.setStepSound(Block.soundStoneFootstep)
+						     	.setCreativeTab(CreativeTabs.tabBlock);
      	
      	GameRegistry.registerBlock(blockZeroOne, modid + blockZeroOne.blockID);
      	LanguageRegistry.addName(blockZeroOne, "CD-ZeroUno");
@@ -77,8 +74,7 @@ public class CoderdojomiMod {
     										.setHardness(1.0F)
     										.setResistance(10.0F)
     										.setStepSound(Block.soundMetalFootstep)
-    										.setCreativeTab(CreativeTabs.tabBlock)
-    										.setUnlocalizedName("cdBlockContainer");
+    										.setCreativeTab(CreativeTabs.tabBlock);
     	GameRegistry.registerBlock(blockContainer, modid + blockContainer.blockID);
      	LanguageRegistry.addName(blockContainer, "CD-Arcobaleno");
 		return blockContainer;
@@ -89,8 +85,7 @@ public class CoderdojomiMod {
      	Item itemZeroOne = new CoderdojomiItem(ITEM_ID_ZERO)
      							.setMaxStackSize(16)
      							.setCreativeTab(CreativeTabs.tabMisc)
-     							.setTextureName(CoderdojomiMod.modid + ":" + "zero")
-     							.setUnlocalizedName("cdItemZeroOne");
+     							.setTextureName(CoderdojomiMod.modid + ":" + "zero");
      	GameRegistry.registerItem(itemZeroOne, modid + itemZeroOne.itemID);
      	LanguageRegistry.addName(itemZeroOne, "CD-Zero");
 		return itemZeroOne;
