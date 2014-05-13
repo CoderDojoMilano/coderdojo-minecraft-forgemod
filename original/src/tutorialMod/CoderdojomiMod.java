@@ -34,10 +34,10 @@ public class CoderdojomiMod {
     	
     	GameRegistry.registerBlock(coderdojomiBlock, modid + coderdojomiBlock.getUnlocalizedName().substring(5));
         
-     	LanguageRegistry.addName(coderdojomiBlock, "toto");
-     	
-     	GameRegistry.registerWorldGenerator(eventmanager);
-
-     	CoderdojomiCrafting.addRecipes();
+    	LanguageRegistry.addName(coderdojomiBlock, "Coderdojomi Block");
+//     	
+//     	GameRegistry.registerWorldGenerator(eventmanager);
+//
+//     	CoderdojomiCrafting.addRecipes();
     }  
 }

@@ -14,11 +14,11 @@ public class CoderdojomiBlock extends Block {
 		
 		super(id, material);
 		
+		this.setCreativeTab(CreativeTabs.tabBlock);
 		setHardness(2.0F);
 		setResistance(10.0F);
 		setStepSound(soundStoneFootstep);
 		
-		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
 	@SideOnly(Side.CLIENT)
