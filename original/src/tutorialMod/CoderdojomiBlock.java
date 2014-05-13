@@ -22,8 +22,21 @@ public class CoderdojomiBlock extends Block {
 	}
 	
 	@SideOnly(Side.CLIENT)
+	private Icon sideTexture;
+	
+	@SideOnly(Side.CLIENT)
+	public Icon getIcon(int side, int meta){
+		if (side == 2 || side == 3 || side == 4 || side == 5) {
+			return this.sideTexture;
+		}
+		return this.blockIcon;
+	}
+	
+	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister) {
-	     this.blockIcon = par1IconRegister.registerIcon(CoderdojomiMod.modid + ":" + "zero-one");
+	     this.blockIcon = par1IconRegister.registerIcon(CoderdojomiMod.modid + ":" + (this.getUnlocalizedName().substring(5)));
+	     this.sideTexture = par1IconRegister.registerIcon(CoderdojomiMod.modid + ":" + (this.getUnlocalizedName().substring(5)) + "_side");
+
 	}
 
 }
