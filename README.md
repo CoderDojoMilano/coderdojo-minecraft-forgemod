@@ -1,12 +1,17 @@
-coder-dojo-mod 
+# coder-dojo-mod 
 ==============
-
-ver. 0.5
 
 Milan Coder Dojo MineCraft Mod
 
-This Mod is for FORGE 1.6.4 (actually forge-1.6.4-9.11.1.965-src.zip) 
+There are two Mod Path in this Repo. One started from a free tutorial e one revisited in order to take clean a simple as much as possible.
+
+First is in the main folder called "original". Second in "clean-code" .
+
+## Original
 
 Is created following Milano Coder Dojo tutorial (http://coderdojomilano.it/tutorial-minecraft-modding-1/)
 
+## Clean-code
+
 Follow this video http://youtu.be/q4HYngIUh0w to use this project with Forge Eclipse Workspace 
+
