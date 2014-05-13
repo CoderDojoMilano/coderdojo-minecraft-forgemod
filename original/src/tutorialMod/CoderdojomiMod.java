@@ -37,8 +37,7 @@ public class CoderdojomiMod {
     	LanguageRegistry.addName(coderdojomiBlock, "Coderdojomi Block");
     	
     	CoderdojomiCrafting.addRecipes();
-//     	
-//     	GameRegistry.registerWorldGenerator(eventmanager);
-//
+
+    	GameRegistry.registerWorldGenerator(eventmanager);
     }  
 }
