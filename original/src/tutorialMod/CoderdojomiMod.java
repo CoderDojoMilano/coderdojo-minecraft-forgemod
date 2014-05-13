@@ -4,6 +4,8 @@ package tutorialMod;
 
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import cpw.mods.fml.common.IWorldGenerator;
@@ -44,5 +46,7 @@ public class CoderdojomiMod {
     	CoderdojomiCrafting.addRecipes();
 
     	GameRegistry.registerWorldGenerator(eventmanager);
+    	
+    	FurnaceRecipes.smelting().addSmelting(coderdojomiItem.itemID, new ItemStack(coderdojomiBlock), 0.1f);
     }  
 }
