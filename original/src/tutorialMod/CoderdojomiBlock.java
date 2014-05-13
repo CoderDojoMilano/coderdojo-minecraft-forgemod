@@ -1,5 +1,7 @@
 package tutorialMod;
 
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -37,6 +39,16 @@ public class CoderdojomiBlock extends Block {
 	     this.blockIcon = par1IconRegister.registerIcon(CoderdojomiMod.modid + ":" + (this.getUnlocalizedName().substring(5)));
 	     this.sideTexture = par1IconRegister.registerIcon(CoderdojomiMod.modid + ":" + (this.getUnlocalizedName().substring(5)) + "_side");
 
+	}
+	
+	@Override
+	public int idDropped(int par1, Random par2Random, int par3) {
+		return CoderdojomiMod.coderdojomiItem.itemID;
+	}
+	
+	@Override
+	public int quantityDropped(Random par1Random) {
+		return par1Random.nextInt(4);
 	}
 
 }
