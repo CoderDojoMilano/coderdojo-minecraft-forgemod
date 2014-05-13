@@ -2,6 +2,8 @@ package tutorialMod;
 
 /* Basic importing */
 
+
+import net.minecraft.item.Item;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import cpw.mods.fml.common.IWorldGenerator;
@@ -25,10 +27,13 @@ public class CoderdojomiMod {
 	public static Block coderdojomiBlock;
 	
 	private EventManger eventmanager = new EventManger();
+	public static Item coderdojomiItem; //il mio nuovo Item
 
     @EventHandler
     public void load(FMLInitializationEvent event)
     {
+    	 coderdojomiItem = new CoderdojomiItem(5000).setUnlocalizedName("coderdojomiItem");
+    	 LanguageRegistry.addName(coderdojomiItem, "Coderdojomi Item");
 
     	coderdojomiBlock = new CoderdojomiBlock(500, Material.rock).setUnlocalizedName("coderdojomiBlock");
     	
