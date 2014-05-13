@@ -45,7 +45,9 @@ public class CoderdojomiMod {
     	
     	CoderdojomiCrafting.addRecipes();
 
-    	GameRegistry.registerWorldGenerator(eventmanager);
+    	//GameRegistry.registerWorldGenerator(eventmanager);
+    	GameRegistry.registerWorldGenerator(new CoderdojoWorldGenerator());
+
     	
     	FurnaceRecipes.smelting().addSmelting(coderdojomiItem.itemID, new ItemStack(coderdojomiBlock), 0.1f);
     }  
