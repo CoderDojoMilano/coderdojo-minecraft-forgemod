@@ -3,18 +3,20 @@
 
 Milan Coder Dojo MineCraft Mod
 
-There are two Mods in this Repo. One started from a free tutorial and one revisited in order to take clean a simple as much as possible.
 
-First is in the main folder called "original". Second in "clean-code" .
+Here is preset only mod source. Link folder in your "Minecraft" forge project (http://youtu.be/q4HYngIUh0w)
 
-Both contains only mod source. Link folder in your "Minecraft" forge project (http://youtu.be/q4HYngIUh0w)
+Features :
 
-## Original
+* custom mod loadable on server and/or client
+* custom block with custom texture for each face
+* customizing Hardness, Resistance, StepSound and CreativeTab of a Block
+* set item dropped on a custom block
+* set item quantity dropped on a custom block
+* put custom block when world is generated
+* add a recipe for a custom block
+* custom item
+* custom item produces custom block in a furnace (smelting)
 
 Is created following Milano Coder Dojo tutorial (http://coderdojomilano.it/tutorial-minecraft-modding-1/).
 Based on Forge 1.6.4 Latest. Attention ! Forge Team has deprecated this version, so don't lose your workspace ;)
-
-## Clean-code
-
-Based on Forge "Recommended version" 
-
