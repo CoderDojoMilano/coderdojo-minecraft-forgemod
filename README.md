@@ -18,5 +18,8 @@ Features :
 * custom item
 * custom item produces custom block in a furnace (smelting)
 
-Is created following Milano Coder Dojo tutorial (http://coderdojomilano.it/tutorial-minecraft-modding-1/).
-Based on Forge 1.6.4 Latest. Attention ! Forge Team has deprecated this version, so don't lose your workspace ;)
+Mod is avaliable for several Forge version . Are identified by src suffix. 
+
+1.6.4-9.11.1.965 is created following Milano Coder Dojo tutorial (http://coderdojomilano.it/tutorial-minecraft-modding-1/)
+
+WARNING : Forge 1.6.4-9.11.1.965 is depracated by Forge Team .... don't lose your workspace ;)
