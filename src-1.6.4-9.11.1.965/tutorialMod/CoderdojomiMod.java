@@ -3,11 +3,13 @@ package tutorialMod;
 /* Basic importing */
 
 
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraftforge.common.EnumHelper;
 import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -28,26 +30,30 @@ public class CoderdojomiMod {
 	public static final String modid = "Coderdojomi_Mod";
 	public static Block coderdojomiBlock;
 	
-	private EventManger eventmanager = new EventManger();
-	public static Item coderdojomiItem; //il mio nuovo Item
+	public static Item coderdojomiItem; 
+	public static Item coderdojomiSword;
 
-    @EventHandler
-    public void load(FMLInitializationEvent event)
-    {
-    	 coderdojomiItem = new CoderdojomiItem(5000).setUnlocalizedName("coderdojomiItem");
-    	 LanguageRegistry.addName(coderdojomiItem, "Coderdojomi Item");
+	private EnumToolMaterial coderdojomiToolMaterial;
 
+	@EventHandler
+    public void load(FMLInitializationEvent event) {
+		//int harvestLevel, int maxUses, float efficiency, float damage, int enchantability
+    	coderdojomiToolMaterial = EnumHelper.addToolMaterial("CoderdojomiToolMaterial", 3, 20, 9.0F, 3.5F, 15);
+    	
+    	coderdojomiItem = new CoderdojomiItem(5000).setUnlocalizedName("coderdojomiItem");
+    	coderdojomiSword = new CoderdojomiSword(5001, coderdojomiToolMaterial).setUnlocalizedName("coderdojomiSword");
     	coderdojomiBlock = new CoderdojomiBlock(500, Material.rock).setUnlocalizedName("coderdojomiBlock");
     	
-    	GameRegistry.registerBlock(coderdojomiBlock, modid + coderdojomiBlock.getUnlocalizedName().substring(5));
-        
+    	LanguageRegistry.addName(coderdojomiItem, "Coderdojomi Item");
+    	LanguageRegistry.addName(coderdojomiSword, "Coderdojomi Sword");
     	LanguageRegistry.addName(coderdojomiBlock, "Coderdojomi Block");
     	
     	CoderdojomiCrafting.addRecipes();
 
-    	//GameRegistry.registerWorldGenerator(eventmanager);
     	GameRegistry.registerWorldGenerator(new CoderdojoWorldGenerator());
-
+    	GameRegistry.registerItem(coderdojomiSword, coderdojomiSword.getUnlocalizedName());
+    	GameRegistry.registerItem(coderdojomiItem, coderdojomiItem.getUnlocalizedName());
+    	GameRegistry.registerBlock(coderdojomiBlock, modid + coderdojomiBlock.getUnlocalizedName().substring(5));
     	
     	FurnaceRecipes.smelting().addSmelting(coderdojomiItem.itemID, new ItemStack(coderdojomiBlock), 0.1f);
     }  

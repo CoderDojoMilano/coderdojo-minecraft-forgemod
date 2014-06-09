@@ -17,6 +17,7 @@ Features :
 * add a recipe for a custom block
 * custom item
 * custom item produces custom block in a furnace (smelting)
+* custom sword with custom material (harvestLevel, maxUses, efficiency, damage, enchantability)
 
 Mod is avaliable for several Forge version . Are identified by src suffix. 
 
