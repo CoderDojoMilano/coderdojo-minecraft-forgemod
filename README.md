@@ -4,7 +4,7 @@
 Milan Coder Dojo MineCraft Mod
 
 
-Here is preset only mod source. Link folder in your "Minecraft" forge project (http://youtu.be/q4HYngIUh0w)
+You can find here mod source code and assets. Link the "src" folder in your "Minecraft" Eclipse Forge project (http://youtu.be/q4HYngIUh0w)
 
 Features :
 
@@ -20,8 +20,6 @@ Features :
 * custom sword with custom textures and material (harvestLevel, maxUses, efficiency, damage, enchantability)
 * custom armor with custom textures and material (durability, reductionAmounts, enchantability)
 
-Mod is avaliable for several Forge version . Are identified by src suffix. 
-
-1.6.4-9.11.1.965 is created following Milano Coder Dojo tutorial (http://coderdojomilano.it/tutorial-minecraft-modding-1/)
+The mod is created following Milano Coder Dojo tutorial (http://coderdojomilano.it/tutorial-minecraft-modding-1/)
 
 WARNING : Forge 1.6.4-9.11.1.965 is depracated by Forge Team .... don't lose your workspace ;)
