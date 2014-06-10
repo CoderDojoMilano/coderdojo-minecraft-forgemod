@@ -50,10 +50,10 @@ public class CoderdojomiMod {
     	
     	coderdojomiItem = new CoderdojomiItem(5000).setUnlocalizedName("coderdojomiItem");
     	coderdojomiSword = new CoderdojomiSword(5001, coderdojomiToolMaterial).setUnlocalizedName("coderdojomiSword");
-    	coderdojomiArmorHelmet = new CoderdojomiArmorItem(5002, corderdojomiArmorMaterial, 0, 0, 0).setUnlocalizedName("coderdojomi_helmet");
-    	coderdojomiArmorPlate = new CoderdojomiArmorItem(5003, corderdojomiArmorMaterial, 0, 0, 0).setUnlocalizedName("coderdojomi_chestplate");
-    	coderdojomiArmorLegs = new CoderdojomiArmorItem(5004, corderdojomiArmorMaterial, 0, 0, 0).setUnlocalizedName("coderdojomi_leggings");
-    	coderdojomiArmorBoots = new CoderdojomiArmorItem(5005, corderdojomiArmorMaterial, 0, 0, 0).setUnlocalizedName("coderdojomi_boots");
+    	coderdojomiArmorHelmet = new CoderdojomiArmorItem(5002, corderdojomiArmorMaterial, 0, CoderdojomiMod.modid + ":" + "textures/model/armor/coderdojomi_layer.png").setUnlocalizedName("coderdojomi_helmet");
+    	coderdojomiArmorPlate = new CoderdojomiArmorItem(5003, corderdojomiArmorMaterial, 1, CoderdojomiMod.modid + ":" + "textures/model/armor/coderdojomi_layer.png").setUnlocalizedName("coderdojomi_chestplate");
+    	coderdojomiArmorLegs = new CoderdojomiArmorItem(5004, corderdojomiArmorMaterial, 2, CoderdojomiMod.modid + ":" + "textures/model/armor/coderdojomi_layer.png").setUnlocalizedName("coderdojomi_leggings");
+    	coderdojomiArmorBoots = new CoderdojomiArmorItem(5005, corderdojomiArmorMaterial, 3, CoderdojomiMod.modid + ":" + "textures/model/armor/coderdojomi_layer.png").setUnlocalizedName("coderdojomi_boots");
     	coderdojomiBlock = new CoderdojomiBlock(500, Material.rock).setUnlocalizedName("coderdojomiBlock");
     	
     	LanguageRegistry.addName(coderdojomiItem, "Coderdojomi Item");

@@ -12,25 +12,38 @@ import net.minecraft.item.ItemStack;
 
 public class CoderdojomiArmorItem extends ItemArmor {
 	
-	private String texturePath = CoderdojomiMod.modid + ":" + "textures/model/armor/coderdojomi_layer_";
+	private String iconName;
+	private String texturePath;
 
-	public CoderdojomiArmorItem(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4, int partNumber) {
-		super(par1, par2EnumArmorMaterial, par3, par4);
-		
+	/**
+	 * 
+	 * @param id
+	 * @param armorMaterial
+	 * @param armorType Stores the armor type: 0 is helmet, 1 is plate, 2 is legs and 3 is boots
+	 * @param texturePath
+	 */
+	public CoderdojomiArmorItem(int id, EnumArmorMaterial armorMaterial, int armorType, String texturePath) {
+		super(id, armorMaterial, 0, armorType); //0 useless...
+		this.texturePath = texturePath;
 		this.setMaxStackSize(1);
 		this.setCreativeTab(CreativeTabs.tabCombat);
-		this.texturePath += partNumber;
 	}
 	
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer) {
 		return texturePath;
 	}
+	
+	@Override
+	public Item setUnlocalizedName(String unlocalizedName) {
+		iconName = CoderdojomiMod.modid + ":" + unlocalizedName;
+		return super.setUnlocalizedName(unlocalizedName);
+	}
 
 	@SideOnly (Side.CLIENT)
 	@Override
 	public void registerIcons(IconRegister iconRegister) {
-		this.itemIcon = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + getUnlocalizedName());
+		this.itemIcon = iconRegister.registerIcon(iconName);
 	}
 
 }
