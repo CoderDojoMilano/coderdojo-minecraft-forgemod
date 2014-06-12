@@ -3,6 +3,7 @@ package tutorialMod;
 /* Basic importing */
 
 
+import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -33,12 +34,17 @@ public class CoderdojomiMod {
 	private EventManger eventmanager = new EventManger();
 	private EnumToolMaterial coderdojomiToolMaterial;
 	private Item coderdojomiSword;
+	private EnumArmorMaterial corderdojomiArmorMaterial;
+	private Item coderdojomiArmorHelmet;
+	private Item coderdojomiArmorPlate;
+	private Item coderdojomiArmorLegs;
+	private Item coderdojomiArmorBoots;
 	public static Item coderdojomiItem; //il mio nuovo Item
 
     @EventHandler
     public void load(FMLInitializationEvent event)
     {
-    	
+		//int harvestLevel, int maxUses, float efficiency, float damage, int enchantability
     	coderdojomiToolMaterial = EnumHelper.addToolMaterial("CoderdojomiToolMaterial", 3, 20, 9.0F, 3.5F, 15);
     	
     	 coderdojomiItem = new CoderdojomiItem(5000).setUnlocalizedName("coderdojomiItem");
@@ -61,5 +67,22 @@ public class CoderdojomiMod {
     	coderdojomiSword = new CoderdojomiSword(5001, coderdojomiToolMaterial).setUnlocalizedName("coderdojomiSword");
     	LanguageRegistry.addName(coderdojomiSword, "Coderdojomi Sword");
     	GameRegistry.registerItem(coderdojomiSword, coderdojomiSword.getUnlocalizedName());
+    	
+    	//durability, reductionAmounts, enchantability
+    	corderdojomiArmorMaterial = EnumHelper.addArmorMaterial("CoderdojomiArmorMaterial", 33, new int[]{3, 8, 6, 3}, 10);
+    	
+    	coderdojomiArmorHelmet = new CoderdojomiArmorItem(5002, corderdojomiArmorMaterial, 0, CoderdojomiMod.modid + ":" + "textures/model/armor/coderdojomi_layer.png").setUnlocalizedName("coderdojomi_helmet");
+    	coderdojomiArmorPlate = new CoderdojomiArmorItem(5003, corderdojomiArmorMaterial, 1, CoderdojomiMod.modid + ":" + "textures/model/armor/coderdojomi_layer.png").setUnlocalizedName("coderdojomi_chestplate");
+    	coderdojomiArmorLegs = new CoderdojomiArmorItem(5004, corderdojomiArmorMaterial, 2, CoderdojomiMod.modid + ":" + "textures/model/armor/coderdojomi_layer.png").setUnlocalizedName("coderdojomi_leggings");
+    	coderdojomiArmorBoots = new CoderdojomiArmorItem(5005, corderdojomiArmorMaterial, 3, CoderdojomiMod.modid + ":" + "textures/model/armor/coderdojomi_layer.png").setUnlocalizedName("coderdojomi_boots");
+
+    	LanguageRegistry.addName(coderdojomiArmorHelmet, "Coderdojomi Armor Helmet");
+    	LanguageRegistry.addName(coderdojomiArmorPlate, "Coderdojomi Armor Plate");
+    	LanguageRegistry.addName(coderdojomiArmorLegs, "Coderdojomi Armor Legs");
+    	LanguageRegistry.addName(coderdojomiArmorBoots, "Coderdojomi Armor Boots");
+    	GameRegistry.registerItem(coderdojomiArmorHelmet, coderdojomiArmorHelmet.getUnlocalizedName());
+    	GameRegistry.registerItem(coderdojomiArmorPlate, coderdojomiArmorPlate.getUnlocalizedName());
+    	GameRegistry.registerItem(coderdojomiArmorLegs, coderdojomiArmorLegs.getUnlocalizedName());
+    	GameRegistry.registerItem(coderdojomiArmorBoots, coderdojomiArmorBoots.getUnlocalizedName());
     }  
 }
