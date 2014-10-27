@@ -20,6 +20,4 @@ Features :
 * custom sword with custom textures and material (harvestLevel, maxUses, efficiency, damage, enchantability)
 * custom armor with custom textures and material (durability, reductionAmounts, enchantability)
 
-The mod is created following Milano Coder Dojo tutorial (http://coderdojomilano.it/tutorial-minecraft-modding-1/)
-
-WARNING : Forge 1.6.4-9.11.1.965 is depracated by Forge Team .... don't lose your workspace ;)
+Develop with Forge 1.7.10-10.13.2.1232
