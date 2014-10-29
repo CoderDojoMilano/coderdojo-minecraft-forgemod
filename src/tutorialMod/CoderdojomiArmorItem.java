@@ -1,39 +1,23 @@
 package tutorialMod;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
-import net.minecraft.item.EnumArmorMaterial;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemStack;
 
+/**
+ * itemRegistry.addObject(298, "leather_helmet", (new ItemArmor(ItemArmor.ArmorMaterial.CLOTH, 0, 0)).setUnlocalizedName("helmetCloth").setTextureName("leather_helmet"));
+ */
 public class CoderdojomiArmorItem extends ItemArmor {
 	
 	private String iconName;
-	private String texturePath;
 
-	/**
-	 * 
-	 * @param id
-	 * @param armorMaterial
-	 * @param armorType Stores the armor type: 0 is helmet, 1 is plate, 2 is legs and 3 is boots
-	 * @param texturePath
-	 */
-	public CoderdojomiArmorItem(int id, EnumArmorMaterial armorMaterial, int armorType, String texturePath) {
-		super(id, armorMaterial, 0, armorType); //0 useless...
-		this.texturePath = texturePath;
+	public CoderdojomiArmorItem(ArmorMaterial material, int armorType, int renderIndex, String textureName) {
+        super(material, armorType, renderIndex);
 		this.setMaxStackSize(1);
 		this.setCreativeTab(CreativeTabs.tabCombat);
+        setTextureName(textureName);
 	}
-	
-	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer) {
-		return texturePath;
-	}
-	
+
+    /*
 	@Override
 	public Item setUnlocalizedName(String unlocalizedName) {
 		iconName = CoderdojomiMod.modid + ":" + unlocalizedName;
@@ -45,5 +29,6 @@ public class CoderdojomiArmorItem extends ItemArmor {
 	public void registerIcons(IconRegister iconRegister) {
 		this.itemIcon = iconRegister.registerIcon(iconName);
 	}
+	*/
 
 }

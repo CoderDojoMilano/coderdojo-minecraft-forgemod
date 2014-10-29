@@ -1,9 +1,8 @@
 package tutorialMod;
 
-import net.minecraft.block.BlockFlower;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CoderdojomiCrafting {
 
@@ -13,7 +12,7 @@ public class CoderdojomiCrafting {
 					        	"ZZ ",
 					        	"ZSX",
 					        	" XX",
-					        	'X', Item.coal, 'S', BlockFlower.plantYellow, 'Z', Item.sugar
+					        	'X', Item.itemRegistry.getObject("coal"), 'S', Item.itemRegistry.getObject("bone"), 'Z', Item.itemRegistry.getObject("sugar")
 					});
 		
 	}
