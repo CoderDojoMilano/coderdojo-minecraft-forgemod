@@ -4,11 +4,8 @@
 Milan Coder Dojo MineCraft Mod
 
 
-You can find here mod source code and assets. Link the "src" folder in your "Minecraft" Eclipse Forge project (http://youtu.be/q4HYngIUh0w)
-
 Features :
 
-* custom mod loadable on server and/or client
 * custom block with custom texture for each face
 * customizing Hardness, Resistance, StepSound and CreativeTab of a Block
 * set item dropped on a custom block

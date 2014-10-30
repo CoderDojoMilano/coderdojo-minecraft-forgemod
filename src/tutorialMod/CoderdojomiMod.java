@@ -17,8 +17,7 @@ import net.minecraftforge.common.util.EnumHelper;
 @Mod(modid = CoderdojomiMod.modid, name = "Coderdojomi Mod", version = "1.0.forge-1.7.10-10.13.2.1232")
 public class CoderdojomiMod {
 
-
-    private static final String modid = "coderdojomi_mod";
+    static final String modid = "coderdojomi_mod";
 
      /*
 
@@ -40,7 +39,13 @@ public class CoderdojomiMod {
     @EventHandler
     public void load(FMLInitializationEvent event)
     {
-        coderdojomiBlock = new CoderdojomiBlock( Material.rock).setBlockName("coderdojomiBlock").setBlockTextureName(modid + ":coderdojomiBlock");
+        coderdojomiBlock = 	new CoderdojomiBlock( Material.rock, "Blocco Coder Dojo")
+        					.setTopBlockTextureName(modid + ":zero-one")
+        					.setBottomBlockTextureName(modid + ":blue")
+        					.setNorthBlockTextureName(modid + ":green")
+					        .setEastBlockTextureName(modid + ":red")
+        					.setSouthBlockTextureName(modid + ":orange")
+					        .setWestBlockTextureName(modid + ":purple");
 
         GameRegistry.registerBlock(coderdojomiBlock, coderdojomiBlock.getUnlocalizedName());
 
