@@ -1,19 +1,12 @@
 package tutorialMod;
 
-import java.util.Random;
-
+import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import cpw.mods.fml.common.IWorldGenerator;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
+
+import java.util.Random;
 
 public class EventManger implements IWorldGenerator {
 
@@ -44,21 +37,6 @@ public class EventManger implements IWorldGenerator {
 	private void generateNether(World world, Random random, int x, int z) {
 	}
 	
-	/**
-	 * Adds an Ore Spawn to Minecraft. Simply register all Ores to spawn with this method in your Generation method in your IWorldGeneration extending Class
-	 * 
-	 * @param Il Blocco da generare
-	 * @param Il mondo nel quale il blocco sarà generato
-	 * @param Un oggetto Random per indicare posizioni a caso in cui generare il blocco
-	 * @param Un intero per passare la coordinata X al metodo di generazione del blocco
-	 * @param Un intero per passare la coordinata Z al metodo di generazione del blocco
-	 * @param Un intero per impostare la massima coordinata X ammessa per la generazione, rispetto all'asse X per ogni Chunk
-	 * @param Un intero per impostare la massima coordinata Z ammessa per la generazione, rispetto all'asse Z per ogni Chunk
-	 * @param Un intero per impostare la dimensione massima di una vena di blocchi generata
-	 * @param Un intero che indica la probabilità che il blocco venga generato in un Chunk
-	 * @param Un intero per assegnare il valore minimo della coordinata Y alla quale il blocco può essere generato
-	 * @param Un intero per assegnare il valore massimo della coordinata Y alla quale il blocco può essere generato
-	 **/
 	public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chancesToSpawn, int minY, int maxY) {
 		
 		int maxPossY = minY + (maxY - 1);
@@ -73,7 +51,7 @@ public class EventManger implements IWorldGenerator {
 			int posX = blockXPos + random.nextInt(maxX);
 			int posY = minY + random.nextInt(diffBtwnMinMaxY);
 			int posZ = blockZPos + random.nextInt(maxZ);
-			(new WorldGenMinable(block.blockID, maxVeinSize)).generate(world, random, posX, posY, posZ);
+			(new WorldGenMinable(block, maxVeinSize)).generate(world, random, posX, posY, posZ);
 		}
 	}
 

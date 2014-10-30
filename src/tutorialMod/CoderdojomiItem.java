@@ -14,7 +14,7 @@ public class CoderdojomiItem extends Item {
 
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister par1IconRegister) {
-        this.itemIcon = par1IconRegister.registerIcon(CoderdojomiMod.modid + ":" + (this.getUnlocalizedName().substring(5)));
+      //  this.itemIcon = par1IconRegister.registerIcon(CoderdojomiMod.modid + ":" + (this.getUnlocalizedName().substring(5)));
     }
 
 }

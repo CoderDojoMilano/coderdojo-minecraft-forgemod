@@ -35,18 +35,22 @@ public class CoderdojomiBlock extends Block {
 		}
 		return this.blockIcon;
 	}
-	
+
+    /*
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
         this.blockIcon = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + (this.getUnlocalizedName().substring(5)));
         this.sideTexture = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + (this.getUnlocalizedName().substring(5)) + "_side");
     }
+    */
 
+    /*
     @Override
     public Item getItemDropped(int par1, Random par2Random, int par3) {
         return CoderdojomiMod.coderdojomiItem;
     }
+    */
 
     @Override
     public int quantityDropped(int meta, int fortune, Random random) {
