@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -39,14 +40,19 @@ public class CoderdojomiMod {
     @EventHandler
     public void load(FMLInitializationEvent event)
     {
-        coderdojomiBlock = 	new CoderdojomiBlock( Material.rock, "Blocco Coder Dojo")
+        coderdojomiBlock = 	new CoderdojomiBlock( Material.rock, "Coder Dojo Block !")
         					.setTopBlockTextureName(modid + ":zero-one")
         					.setBottomBlockTextureName(modid + ":blue")
         					.setNorthBlockTextureName(modid + ":green")
 					        .setEastBlockTextureName(modid + ":red")
         					.setSouthBlockTextureName(modid + ":orange")
-					        .setWestBlockTextureName(modid + ":purple");
-
+					        .setWestBlockTextureName(modid + ":purple")
+					        //.setBlockUnbreakable() //This method will set the hardness of the block to -1, making it indestructible 
+					        .setHardness(5.0F) //Sets how many hits it takes to break a block
+					        .setStepSound(Block.soundTypeGlass) //Sets the footstep sound for the block.
+					        .setCreativeTab(CreativeTabs.tabFood)
+					        ;
+        
         GameRegistry.registerBlock(coderdojomiBlock, coderdojomiBlock.getUnlocalizedName());
 
         /*
