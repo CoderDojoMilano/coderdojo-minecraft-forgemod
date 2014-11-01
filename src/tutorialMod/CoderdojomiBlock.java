@@ -1,9 +1,12 @@
 package tutorialMod;
 
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -24,6 +27,8 @@ public class CoderdojomiBlock extends Block {
 	private IIcon westIcon;
 	private IIcon eastIcon;
 	private String name;
+	private int quantityDropped = 1;
+	private Item itemDropped;
 
 	public CoderdojomiBlock(Material material, String name) {
         super(material);
@@ -34,6 +39,16 @@ public class CoderdojomiBlock extends Block {
 		setResistance(10.0F);
 		setStepSound(stepSound);
 		
+	}
+	
+	public CoderdojomiBlock setItemDropped(Item itemDropped) {
+		this.itemDropped = itemDropped;
+		return this;
+	}
+	
+	public CoderdojomiBlock setQuantityDropped(int quantityDropped) {
+		this.quantityDropped = quantityDropped;
+		return this;
 	}
 	
 	public CoderdojomiBlock setTopBlockTextureName(String name) {
@@ -102,26 +117,15 @@ public class CoderdojomiBlock extends Block {
 		default: return null; 
 		}
 	}
-
-    /*
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        this.blockIcon = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + (this.getUnlocalizedName().substring(5)));
-        this.sideTexture = iconRegister.registerIcon(CoderdojomiMod.modid + ":" + (this.getUnlocalizedName().substring(5)) + "_side");
-    }
-    */
-
-    /*
-    @Override
-    public Item getItemDropped(int par1, Random par2Random, int par3) {
-        return CoderdojomiMod.coderdojomiItem;
+	
+	public int quantityDropped(Random random)
+    {
+        return this.itemDropped == null ? 0 : this.quantityDropped ;
     }
 
-    @Override
-    public int quantityDropped(int meta, int fortune, Random random) {
-		return random.nextInt(4);
-	}
-     */
+    public Item getItemDropped(int x, Random random, int y)
+    {
+        return this.itemDropped;
+    }
 
 }

@@ -11,6 +11,7 @@ import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraftforge.common.util.EnumHelper;
@@ -40,6 +41,8 @@ public class CoderdojomiMod {
     @EventHandler
     public void load(FMLInitializationEvent event)
     {
+        final Item diamondItem = GameData.getItemRegistry().getObject("diamond");
+        
         coderdojomiBlock = 	new CoderdojomiBlock( Material.rock, "Coder Dojo Block !")
         					.setTopBlockTextureName(modid + ":zero-one")
         					.setBottomBlockTextureName(modid + ":blue")
@@ -47,8 +50,10 @@ public class CoderdojomiMod {
 					        .setEastBlockTextureName(modid + ":red")
         					.setSouthBlockTextureName(modid + ":orange")
 					        .setWestBlockTextureName(modid + ":purple")
+					        .setQuantityDropped(4)
+					        .setItemDropped(diamondItem)
 					        //.setBlockUnbreakable() //This method will set the hardness of the block to -1, making it indestructible 
-					        .setHardness(5.0F) //Sets how many hits it takes to break a block
+					        .setHardness(1.0F) //Sets how many hits it takes to break a block
 					        .setStepSound(Block.soundTypeGlass) //Sets the footstep sound for the block.
 					        .setCreativeTab(CreativeTabs.tabFood)
 					        ;
