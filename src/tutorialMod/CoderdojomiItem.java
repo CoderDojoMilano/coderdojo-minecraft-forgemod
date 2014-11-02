@@ -11,7 +11,7 @@ public class CoderdojomiItem extends Item {
     private String iconName;
 
 	public CoderdojomiItem(String name) {
-		setIconName(name);
+		setUnlocalizedName(name);
         setCreativeTab(CreativeTabs.tabMaterials);
 	}
 	

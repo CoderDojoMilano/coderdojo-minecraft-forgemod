@@ -7,13 +7,22 @@ import net.minecraft.item.ItemSword;
 
 public class CoderdojomiSword extends ItemSword {
 
-	public CoderdojomiSword(ToolMaterial toolMaterial) {
+	private String iconName;
+
+	public CoderdojomiSword(ToolMaterial toolMaterial, String name) {
 		super(toolMaterial);
+		setUnlocalizedName(name);
+	}
+
+	public CoderdojomiSword setIconName(String iconName) {
+		this.iconName = iconName;
+		return this;
 	}
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister par1IconRegister) {
-       // this.itemIcon = par1IconRegister.registerIcon(CoderdojomiMod.modid + ":" + (this.getUnlocalizedName().substring(5)));
+    public void registerIcons(IIconRegister iconRegister) {
+    	this.itemIcon = iconRegister.registerIcon(this.iconName);
     }
+
 
 }

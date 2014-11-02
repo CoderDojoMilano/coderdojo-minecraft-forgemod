@@ -2,6 +2,7 @@ package tutorialMod;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
@@ -60,13 +61,24 @@ public class CoderdojomiMod {
 					        .setCreativeTab(CreativeTabs.tabFood)
 					        ;
         
-        final Item coderdojomiItem = new CoderdojomiItem("coderdojomiitem")
-        					.setIconName(modid + ":zero")
-        					;
+        final Item coderdojomiItem = 
+        		new CoderdojomiItem("coderdojomiitem")
+        		.setIconName(modid + ":zero")
+        		;
         
         final CoderdojomiWorldGenerator coderDojomiWorldGenerator = new CoderdojomiWorldGenerator(coderdojomiBlock);
 
+        //int harvestLevel, int maxUses, float efficiency, float damage, int enchantability
+        ToolMaterial toolMaterial = EnumHelper.addToolMaterial("CoderdojomiToolMaterial", 3, 20, 9.0F, 3.5F, 15);
+        final CoderdojomiSword coderdojomiSword = 
+        		new CoderdojomiSword( toolMaterial, "coderdojomisword")
+        		.setIconName(modid + ":sword")
+        		;
+    	
+        
         //registration
+        GameRegistry.registerItem(coderdojomiSword, coderdojomiSword.getUnlocalizedName());
+
         GameRegistry.registerBlock(coderdojomiBlock, coderdojomiBlock.getUnlocalizedName());
         
         GameRegistry.registerWorldGenerator(coderDojomiWorldGenerator, 10); //min weight -> starts firts
@@ -83,8 +95,6 @@ public class CoderdojomiMod {
 		FurnaceRecipes.smelting().func_151396_a(diamondItem, new ItemStack(coderdojomiItem), 0.5F);
 		
         /*
-        //int harvestLevel, int maxUses, float efficiency, float damage, int enchantability
-        coderdojomiToolMaterial = EnumHelper.addToolMaterial("CoderdojomiToolMaterial", 3, 20, 9.0F, 3.5F, 15);
 
         coderdojomiItem = new CoderdojomiItem().setUnlocalizedName("coderdojomiItem");
         LanguageRegistry.addName(coderdojomiItem, "Coderdojomi Item");
