@@ -33,8 +33,8 @@ public class CoderdojomiBlock extends Block {
 	public CoderdojomiBlock(Material material, String name) {
         super(material);
 
-        this.name = name;
-		this.setCreativeTab(CreativeTabs.tabBlock);
+        setBlockName(name);
+		setCreativeTab(CreativeTabs.tabBlock);
 		setHardness(2.0F);
 		setResistance(10.0F);
 		setStepSound(stepSound);
@@ -81,16 +81,6 @@ public class CoderdojomiBlock extends Block {
 		return this;
 	}
 	
-	@Override
-	public String getUnlocalizedName() {
-		return this.name;
-	}
-	
-	@Override
-	public String getLocalizedName() {
-		return this.name;
-	}
-
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {

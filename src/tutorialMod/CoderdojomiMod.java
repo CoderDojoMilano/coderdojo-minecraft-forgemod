@@ -1,9 +1,11 @@
 package tutorialMod;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -40,8 +42,10 @@ public class CoderdojomiMod {
     @EventHandler
     public void load(FMLInitializationEvent event)
     {
-        final Item diamondItem = GameData.getItemRegistry().getObject("diamond");
-        final Block coderdojomiBlock = 	new CoderdojomiBlock( Material.rock, "Coder Dojo Block !")
+    	//definition
+        final Item diamondItem = Items.diamond;
+        
+        final Block coderdojomiBlock = 	new CoderdojomiBlock( Material.rock, "coderdojomi")
         					.setTopBlockTextureName(modid + ":zero-one")
         					.setBottomBlockTextureName(modid + ":blue")
         					.setNorthBlockTextureName(modid + ":green")
@@ -55,12 +59,21 @@ public class CoderdojomiMod {
 					        .setStepSound(Block.soundTypeGlass) //Sets the footstep sound for the block.
 					        .setCreativeTab(CreativeTabs.tabFood)
 					        ;
-        final CoderdojomiWorldGenerator coderDojomiWorldGenerator = new CoderdojomiWorldGenerator(coderdojomiBlock);
         
+        final CoderdojomiWorldGenerator coderDojomiWorldGenerator = new CoderdojomiWorldGenerator(coderdojomiBlock);
+
+        //registration
         GameRegistry.registerBlock(coderdojomiBlock, coderdojomiBlock.getUnlocalizedName());
         
         GameRegistry.registerWorldGenerator(coderDojomiWorldGenerator, 10); //min weight -> starts firts
 
+		GameRegistry.addRecipe(new ItemStack(coderdojomiBlock), new Object[]{
+			"A  ",
+			" A ",
+			"  A",
+			'A', new ItemStack(diamondItem)
+		});
+        
         /*
         //int harvestLevel, int maxUses, float efficiency, float damage, int enchantability
         coderdojomiToolMaterial = EnumHelper.addToolMaterial("CoderdojomiToolMaterial", 3, 20, 9.0F, 3.5F, 15);
