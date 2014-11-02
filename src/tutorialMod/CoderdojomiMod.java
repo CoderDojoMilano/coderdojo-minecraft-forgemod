@@ -79,7 +79,9 @@ public class CoderdojomiMod {
 		});
 		
 		GameRegistry.registerItem(coderdojomiItem, coderdojomiItem.getUnlocalizedName());
-        
+
+		FurnaceRecipes.smelting().func_151396_a(diamondItem, new ItemStack(coderdojomiItem), 0.5F);
+		
         /*
         //int harvestLevel, int maxUses, float efficiency, float damage, int enchantability
         coderdojomiToolMaterial = EnumHelper.addToolMaterial("CoderdojomiToolMaterial", 3, 20, 9.0F, 3.5F, 15);
