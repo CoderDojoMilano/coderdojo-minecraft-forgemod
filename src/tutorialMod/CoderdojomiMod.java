@@ -36,14 +36,12 @@ public class CoderdojomiMod {
 	*/
 
 
-    public static Block coderdojomiBlock;
 
     @EventHandler
     public void load(FMLInitializationEvent event)
     {
         final Item diamondItem = GameData.getItemRegistry().getObject("diamond");
-        
-        coderdojomiBlock = 	new CoderdojomiBlock( Material.rock, "Coder Dojo Block !")
+        final Block coderdojomiBlock = 	new CoderdojomiBlock( Material.rock, "Coder Dojo Block !")
         					.setTopBlockTextureName(modid + ":zero-one")
         					.setBottomBlockTextureName(modid + ":blue")
         					.setNorthBlockTextureName(modid + ":green")
@@ -57,8 +55,11 @@ public class CoderdojomiMod {
 					        .setStepSound(Block.soundTypeGlass) //Sets the footstep sound for the block.
 					        .setCreativeTab(CreativeTabs.tabFood)
 					        ;
+        final CoderdojomiWorldGenerator coderDojomiWorldGenerator = new CoderdojomiWorldGenerator(coderdojomiBlock);
         
         GameRegistry.registerBlock(coderdojomiBlock, coderdojomiBlock.getUnlocalizedName());
+        
+        GameRegistry.registerWorldGenerator(coderDojomiWorldGenerator, 10); //min weight -> starts firts
 
         /*
         //int harvestLevel, int maxUses, float efficiency, float damage, int enchantability

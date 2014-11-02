@@ -3,6 +3,7 @@ package tutorialMod;
 import java.util.Random;
 import java.util.logging.Logger;
 
+import net.minecraft.block.Block;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -10,7 +11,13 @@ import net.minecraft.world.chunk.IChunkProvider;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.IWorldGenerator;
 
-public class CoderdojoWorldGenerator implements IWorldGenerator {
+public class CoderdojomiWorldGenerator implements IWorldGenerator {
+
+	private Block block;
+
+	public CoderdojomiWorldGenerator(Block coderdojomiBlock) {
+		this.block = coderdojomiBlock;
+	}
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world,
@@ -31,7 +38,7 @@ public class CoderdojoWorldGenerator implements IWorldGenerator {
 		//trovata coordinata y corretta ?
 		if (world.doesBlockHaveSolidTopSurface(world,x, y, z))
 		{
-			world.setBlock(x, y, z, CoderdojomiMod.coderdojomiBlock); //punta
+			world.setBlock(x, y, z, block); //punta
 		}
 
 	}

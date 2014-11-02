@@ -31,7 +31,7 @@ public class EventManger implements IWorldGenerator {
 
 	private void generateSurface(World world, Random random, int x, int z) {
 		
-		this.addOreSpawn(CoderdojomiMod.coderdojomiBlock, world, random, x, z, 16, 16, 4 + random.nextInt(3), 20, 15, 70);
+		//this.addOreSpawn(CoderdojomiMod.coderdojomiBlock, world, random, x, z, 16, 16, 4 + random.nextInt(3), 20, 15, 70);
 	}
 
 	private void generateNether(World world, Random random, int x, int z) {

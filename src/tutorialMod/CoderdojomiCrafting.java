@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class CoderdojomiCrafting {
 
+	/*
 	public static void addRecipes() {
 		 GameRegistry.addRecipe(new ItemStack(CoderdojomiMod.coderdojomiBlock), new Object[]
 					{
@@ -16,5 +17,6 @@ public class CoderdojomiCrafting {
 					});
 		
 	}
+	*/
 
 }
