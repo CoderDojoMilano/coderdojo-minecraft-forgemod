@@ -1,34 +1,19 @@
 package tutorialMod;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemArmor;
 
-/**
- * itemRegistry.addObject(298, "leather_helmet", (new ItemArmor(ItemArmor.ArmorMaterial.CLOTH, 0, 0)).setUnlocalizedName("helmetCloth").setTextureName("leather_helmet"));
- */
 public class CoderdojomiArmorItem extends ItemArmor {
 	
-	private String iconName;
-
-	public CoderdojomiArmorItem(ArmorMaterial material, int armorType, int renderIndex, String textureName) {
+	public CoderdojomiArmorItem(ArmorMaterial material, int armorType, int renderIndex, String textureName, String name) {
         super(material, armorType, renderIndex);
-		this.setMaxStackSize(1);
-		this.setCreativeTab(CreativeTabs.tabCombat);
+		setMaxStackSize(1);
+		setCreativeTab(CreativeTabs.tabCombat);
         setTextureName(textureName);
+        setUnlocalizedName(name);
 	}
-
-    /*
-	@Override
-	public Item setUnlocalizedName(String unlocalizedName) {
-		iconName = CoderdojomiMod.modid + ":" + unlocalizedName;
-		return super.setUnlocalizedName(unlocalizedName);
-	}
-
-	@SideOnly (Side.CLIENT)
-	@Override
-	public void registerIcons(IconRegister iconRegister) {
-		this.itemIcon = iconRegister.registerIcon(iconName);
-	}
-	*/
-
+	
 }
