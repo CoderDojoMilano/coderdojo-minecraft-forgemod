@@ -45,7 +45,7 @@ public class CoderdojomiMod {
     	//definition
         final Item diamondItem = Items.diamond;
         
-        final Block coderdojomiBlock = 	new CoderdojomiBlock( Material.rock, "coderdojomi")
+        final Block coderdojomiBlock = 	new CoderdojomiBlock( Material.rock, "coderdojomiblock")
         					.setTopBlockTextureName(modid + ":zero-one")
         					.setBottomBlockTextureName(modid + ":blue")
         					.setNorthBlockTextureName(modid + ":green")
@@ -60,6 +60,10 @@ public class CoderdojomiMod {
 					        .setCreativeTab(CreativeTabs.tabFood)
 					        ;
         
+        final Item coderdojomiItem = new CoderdojomiItem("coderdojomiitem")
+        					.setIconName(modid + ":zero")
+        					;
+        
         final CoderdojomiWorldGenerator coderDojomiWorldGenerator = new CoderdojomiWorldGenerator(coderdojomiBlock);
 
         //registration
@@ -73,6 +77,8 @@ public class CoderdojomiMod {
 			"  A",
 			'A', new ItemStack(diamondItem)
 		});
+		
+		GameRegistry.registerItem(coderdojomiItem, coderdojomiItem.getUnlocalizedName());
         
         /*
         //int harvestLevel, int maxUses, float efficiency, float damage, int enchantability

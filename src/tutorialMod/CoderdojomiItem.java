@@ -8,13 +8,22 @@ import net.minecraft.item.Item;
 
 public class CoderdojomiItem extends Item {
 
-    public CoderdojomiItem() {
-        this.setCreativeTab(CreativeTabs.tabMaterials);
-    }
+    private String iconName;
+
+	public CoderdojomiItem(String name) {
+		setIconName(name);
+        setCreativeTab(CreativeTabs.tabMaterials);
+	}
+	
+	public CoderdojomiItem setIconName(String iconName) {
+		this.iconName = iconName;
+		return this;
+	}
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister par1IconRegister) {
-      //  this.itemIcon = par1IconRegister.registerIcon(CoderdojomiMod.modid + ":" + (this.getUnlocalizedName().substring(5)));
+    public void registerIcons(IIconRegister iconRegister) {
+    	this.itemIcon = iconRegister.registerIcon(this.iconName);
     }
+    
 
 }
