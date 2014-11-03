@@ -15,7 +15,7 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = CoderdojomiMod.modid, name = "Coderdojomi Mod", version = "1.0.forge-1.7.10-10.13.2.1232")
+@Mod(modid = CoderdojomiMod.modid, name = "Coderdojomi Mod", version = "1.0.forge-1.7.10-10.13.2.1230")
 public class CoderdojomiMod {
 
     static final String modid = "coderdojomi_mod";
@@ -26,20 +26,21 @@ public class CoderdojomiMod {
     	//definition
         final Item diamondItem = Items.diamond;
         
-        final Block coderdojomiBlock = 	new CoderdojomiBlock( Material.rock, "coderdojomiblock")
-        					.setTopBlockTextureName(modid + ":zero-one")
-        					.setBottomBlockTextureName(modid + ":blue")
-        					.setNorthBlockTextureName(modid + ":green")
-					        .setEastBlockTextureName(modid + ":red")
-        					.setSouthBlockTextureName(modid + ":orange")
-					        .setWestBlockTextureName(modid + ":purple")
-					        .setQuantityDropped(4)
-					        .setItemDropped(diamondItem)
-					        //.setBlockUnbreakable() //This method will set the hardness of the block to -1, making it indestructible 
-					        .setHardness(1.0F) //Sets how many hits it takes to break a block
-					        .setStepSound(Block.soundTypeGlass) //Sets the footstep sound for the block.
-					        .setCreativeTab(CreativeTabs.tabFood)
-					        ;
+        final Block coderdojomiBlock = 	
+        		new CoderdojomiBlock( Material.rock, "coderdojomiblock")
+        		.setTopBlockTextureName(modid + ":zero-one")
+        		.setBottomBlockTextureName(modid + ":blue")
+        		.setNorthBlockTextureName(modid + ":green")
+				.setEastBlockTextureName(modid + ":red")
+        		.setSouthBlockTextureName(modid + ":orange")
+				.setWestBlockTextureName(modid + ":purple")
+				.setQuantityDropped(4)
+				.setItemDropped(diamondItem)
+				//.setBlockUnbreakable() //This method will set the hardness of the block to -1, making it indestructible 
+				.setHardness(1.0F) //Sets how many hits it takes to break a block
+				.setStepSound(Block.soundTypeGlass) //Sets the footstep sound for the block.
+				.setCreativeTab(CreativeTabs.tabFood)
+				;
         
         final Item coderdojomiItem = 
         		new CoderdojomiItem("coderdojomiitem")
@@ -58,10 +59,11 @@ public class CoderdojomiMod {
         //durability, reductionAmounts, enchantability
     	ArmorMaterial armorMaterial = EnumHelper.addArmorMaterial("coderdojomiArmorMaterial", 33, new int[]{3, 8, 6, 3}, 10);
 
-    	Item helmet = new CoderdojomiArmorItem(armorMaterial, 1, 0, modid + ":" + "model/armor/coderdojomi_layer", "coderdojomi_helmet");
-    	Item chest = new CoderdojomiArmorItem(armorMaterial, 1, 1, modid + ":" + "model/armor/coderdojomi_layer", "coderdojomi_chestplate");
-    	Item leggings = new CoderdojomiArmorItem(armorMaterial, 1, 2, modid + ":" + "model/armor/coderdojomi_layer", "coderdojomi_leggings");
-    	Item boots = new CoderdojomiArmorItem(armorMaterial, 1, 3, modid + ":" + "model/armor/coderdojomi_layer", "coderdojomi_boots");
+    	/** Stores the armor type: 0 is helmet, 1 is plate, 2 is legs and 3 is boots */
+    	Item helmet = new CoderdojomiArmorItem(armorMaterial, 0, "coderdojomi_helmet", modid + ":" + "coderdojomi_helmet", modid + ":" + "textures/model/armor/coderdojomi_layer_1.png");
+    	Item plate = new CoderdojomiArmorItem(armorMaterial, 1, "coderdojomi_chestplate", modid + ":" + "coderdojomi_chestplate", modid + ":" + "textures/model/armor/coderdojomi_layer_1.png");
+    	Item leggings= new CoderdojomiArmorItem(armorMaterial, 2, "coderdojomi_leggings", modid + ":" + "coderdojomi_leggings", modid + ":" + "textures/model/armor/coderdojomi_layer_2.png");
+    	Item boots = new CoderdojomiArmorItem(armorMaterial, 3, "coderdojomi_boots", modid + ":" + "coderdojomi_boots", modid + ":" + "textures/model/armor/coderdojomi_layer_1.png");
         
         //registration
         GameRegistry.registerItem(coderdojomiSword, coderdojomiSword.getUnlocalizedName());
@@ -82,7 +84,7 @@ public class CoderdojomiMod {
 		FurnaceRecipes.smelting().func_151396_a(diamondItem, new ItemStack(coderdojomiItem), 0.5F);
 
 		GameRegistry.registerItem(helmet, helmet.getUnlocalizedName());
-		GameRegistry.registerItem(chest, chest.getUnlocalizedName());
+		GameRegistry.registerItem(plate, plate.getUnlocalizedName());
 		GameRegistry.registerItem(leggings, leggings.getUnlocalizedName());
 		GameRegistry.registerItem(boots, boots.getUnlocalizedName());
     }
