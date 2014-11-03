@@ -17,4 +17,4 @@ Features :
 * custom sword with custom textures and material (harvestLevel, maxUses, efficiency, damage, enchantability)
 * custom armor with custom textures and material (durability, reductionAmounts, enchantability)
 
-Develop with Forge 1.7.10-10.13.2.1232
+Develop with Forge 1.7.10-10.13.2.1230
