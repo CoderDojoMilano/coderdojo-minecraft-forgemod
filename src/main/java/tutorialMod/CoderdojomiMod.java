@@ -15,7 +15,7 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = CoderdojomiMod.modid, name = "Coderdojomi Mod", version = "1.0.forge-1.7.10-10.13.2.1230")
+@Mod(modid = CoderdojomiMod.modid, name = "Coderdojomi Mod", version = "1.0.forge-1.7.10-10.13.2.1235")
 public class CoderdojomiMod {
 
     static final String modid = "coderdojomi_mod";

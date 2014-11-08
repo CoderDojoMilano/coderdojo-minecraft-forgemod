@@ -20,13 +20,13 @@ group= "it.coderdojomi.minecraft.mod" // http://maven.apache.org/guides/mini/gui
 archivesBaseName = "coderdojomi"
 
 minecraft {
-    version = "1.7.10-10.13.2.1230" 
+    version = "1.7.10-10.13.2.1235" 
     runDir = "run"
 }
 
 logger.lifecycle ""+version
-version = "${minecraft.version}-$version.${System.getenv().BUILD_NUMBER}"
-logger.lifecycle ""+version
+//version = "${minecraft.version}-$version.${System.getenv().BUILD_NUMBER}"
+//logger.lifecycle ""+version
 
 processResources {
     inputs.property "version", project.version
