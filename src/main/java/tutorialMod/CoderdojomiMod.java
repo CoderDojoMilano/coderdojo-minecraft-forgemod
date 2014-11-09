@@ -1,5 +1,7 @@
 package tutorialMod;
 
+import org.apache.logging.log4j.Logger;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -9,26 +11,40 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = CoderdojomiMod.modid, name = CoderdojomiMod.name, version = "${version}")
+@Mod(modid = CoderdojomiMod.modid, name = CoderdojomiMod.name, version = CoderdojomiMod.version)
 public class CoderdojomiMod {
 
     static final String modid = "coderdojomi_mod";
+    static final String version = "@VERSION@";
     static final String name = "${name}";
+	private Logger logger;
 
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+            logger = event.getModLog();
+            
+            Configuration configs = new Configuration(event.getSuggestedConfigurationFile());
+            try {
+                    configs.load();
+            } catch (RuntimeException e) {
+                    logger.warn(e);
+            }
+    }
     
     @EventHandler
     public void load(FMLInitializationEvent event)
     {
-    	System.out.println(name);
     	//definition
-    	final Item diamondItem = GameData.getItemRegistry().getObject("diamond");
+    	final Item diamondItem = Items.diamond;
     	
         final Block coderdojomiBlock = 	
         		new CoderdojomiBlock( Material.rock, "coderdojomiblock")

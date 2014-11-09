@@ -1,16 +1,16 @@
 [
-{
-  "modid": "coderdojomi_mod", //same in java file
-  "name": "${name}",
-  "description": "A Showcase mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "http://coderdojomilano.it/",
-  "updateUrl": "",
-  "authorList": ["Toto"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
+    {
+      "modid": "coderdojomi_mod", //same in java file
+      "name": "AAA",
+      "description": "A Showcase mod.",
+      "version": "${mod_version}",
+      "mcversion": "${minecraft_version}",
+      "url": "http://coderdojomilano.it/",
+      "updateUrl": "",
+      "authorList": ["Toto"],
+      "credits": "The Forge and FML guys, for making this example",
+      "logoFile": "",
+      "screenshots": [],
+      "dependencies": []
+    }
 ]
