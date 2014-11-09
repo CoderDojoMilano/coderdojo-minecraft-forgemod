@@ -1,7 +1,7 @@
 [
 {
-  "modid": "coderdojomi_mod",
-  "name": "Coderdojo Milan Mod",
+  "modid": "coderdojomi_mod", //same in java file
+  "name": "${name}",
   "description": "A Showcase mod.",
   "version": "${version}",
   "mcversion": "${mcversion}",

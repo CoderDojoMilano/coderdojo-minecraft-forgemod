@@ -15,34 +15,34 @@ buildscript {
 
 apply plugin: "forge"
 
-version = "1.0"
-group= "it.coderdojomi.minecraft.mod" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "coderdojomi"
-
 minecraft {
-    version = "1.7.10-10.13.2.1235" 
+    version = "1.7.10-10.13.2.1230" 
     runDir = "run"
 }
 
+version = "1.0"
+version = "${version}-${minecraft.apiVersion}"
+group= "it.coderdojomi.minecraft.mod" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "coderdojomi"
+
+
 logger.lifecycle ""+version
-//version = "${minecraft.version}-$version.${System.getenv().BUILD_NUMBER}"
-//logger.lifecycle ""+version
 
 processResources {
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
 
     from(sourceSets.main.resources.srcDirs) {
         include '**/*.info'
+	include '**/*Mod.java'
 
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        expand 'version':version , 'mcversion':project.minecraft.version, "name":"Coderdojo Milan Mod"
     }
 
-    from(sourceSets.main.resources.srcDirs) { exclude '**/*.info' }
 }
 
+
+
 repositories {
-     maven { // The repo from which to get waila
+     maven { 
          name "Mobius Repo"
          url "http://mobiusstrip.eu/maven"
      }

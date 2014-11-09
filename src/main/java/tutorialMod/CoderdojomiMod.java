@@ -13,19 +13,23 @@ import net.minecraftforge.common.util.EnumHelper;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = CoderdojomiMod.modid, name = "Coderdojomi Mod", version = "1.0.forge-1.7.10-10.13.2.1235")
+@Mod(modid = CoderdojomiMod.modid, name = CoderdojomiMod.name, version = "${version}")
 public class CoderdojomiMod {
 
     static final String modid = "coderdojomi_mod";
+    static final String name = "${name}";
 
+    
     @EventHandler
     public void load(FMLInitializationEvent event)
     {
+    	System.out.println(name);
     	//definition
-        final Item diamondItem = Items.diamond;
-        
+    	final Item diamondItem = GameData.getItemRegistry().getObject("diamond");
+    	
         final Block coderdojomiBlock = 	
         		new CoderdojomiBlock( Material.rock, "coderdojomiblock")
         		.setTopBlockTextureName(modid + ":zero-one")
