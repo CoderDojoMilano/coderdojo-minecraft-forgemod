@@ -1,4 +1,4 @@
-# coder-dojo-mod 
+# coderdojo-minecraft-forgemod
 ==============
 
 Milan Coder Dojo MineCraft Mod
