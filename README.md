@@ -18,3 +18,8 @@ Features :
 * custom armor with custom textures and material (durability, reductionAmounts, enchantability)
 
 Develop with Forge 1.7.10-10.13.2.1230
+
+1. Install forge to your Minecraft Client.
+2. run "./gradlew build" into the project folder
+3. copy build/libs/coderdojomi-1.7.10-[XXXXX].jar to ~/.minecraft/mods folder
+
